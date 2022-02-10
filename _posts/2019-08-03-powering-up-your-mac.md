@@ -8,7 +8,7 @@ In order to gain some time at work, we have a group of tools and configurations 
 At ThoughtWorks, we work with macOS so most of the tips are specific for it, however some of them can be configurable on Linux and Windows too.
 ---
 
-## 1. Package managers
+# 1. Package managers
 
 First of all, it’s important to talk about package managers, a package manager is a collection of software tools that automates the process of installing, upgrading, and configuring a bunch of programs (packages) on your computer. Homebrew, nvm and sdkman are good examples of it.
 Homebrew and Homebrew Cask
@@ -34,7 +34,7 @@ Homebrew Cask extends Homebrew and brings its simplicity to the installation and
 `$ brew cask list` shows all the installed packages.  
 `$ brew cask help` shows all the available commands.
 
-### 1.1 Nvm
+## 1.1 Nvm
 
 Node.js is a widely used Javascript runtime. It'is a simple bash script to manage multiple active node.js versions. To isntall it, run the command:
 
@@ -56,7 +56,7 @@ The main commands are:
 `$ nvm alias default node` set the latest node version installed as default  
 `$ nvm alias default 11.10.0` set specific node version as default
 
-### 1.2 SDKman
+## 1.2 SDKman
 
 SDKMan is a software package manager specific for Java platform, it installs and manages program languages ​​and tools such as Java, Kotlin, Scala, Gradle, Maven, Spring Boot and Grails.
 
@@ -73,9 +73,9 @@ $ sdk default [PACKAGE_NAME][VERSION]: set specific version as default
 $ sdk current: show current version in use of all the installed packages
 $ sdk current [PACKAGE_NAME]: show current version in use of specific package
 
-## 2. Terminal
+# 2. Terminal
 
-### 2.1 iTerm
+## 2.1 iTerm
 
 Iterm is an alternate terminal for macOS. It has some nice features like the divided panel (Cmd + D), the global search (Cmd + F), and a better navigation between tabs (Cmd + Arrows). It’s a lot more customizable than the Terminal.
 Let's use homebrew to install the iterm terminal :)
@@ -92,7 +92,7 @@ One thing that used to bother me was the “new tab” option (Cmd T) which by d
 
 To change the colors of the terminal go to Preferences > Profiles > Colors. Here we can change the color preset and even download themes from an online gallery maintained by the community.
 
-### Using VS Code
+## 2.2 Using VS Code
 
 If you don’t know or don’t like to use vim, you can always open text file using vscode for example, let's install vs code using homebrew cask that was  installed before:
 $ brew cask install visual-studio-code
@@ -101,7 +101,7 @@ Now go to
 F1 or "View > Command palette": Type "Shell command" and install 'code' command in PATH to use it in the Terminal
 Now you can simply type code in your terminal, and vs code will open.
 
-### Z Shell - zsh
+## 2.3 Z Shell - zsh
 
 *Since macOS Catalina, Apple brings zsh as the default shell, so you don't need to follow the steps to install it.
 Z Shell is an alternate unix shell. It has some nice features like the Tab completion. To use the Tab completion type cd, then the first letters of the directory names and press TAB.
@@ -112,20 +112,22 @@ You can also use the command ls without having to type whole directory names, ju
 
 How to install zsh: (not required if you're usin macOS catalina or above)
 First, check if you already have it. Try zsh --version on your iTerm. If you don’t have it, run (assuming you have homebrew):
-$ brew install zsh zsh-completions
-or
-$ sudo port install zsh zsh-completions
+
+`$ brew install zsh zsh-completions` or `$ sudo port install zsh zsh-completions`  
+
 To set zsh as your default shell, execute the following:
 chsh -s /bin/zsh
 
-### Oh-my-zsh (Fun part!)
+## 2.4 Oh-my-zsh (Fun part!)
+
 Now things will start to be fun! Oh-my-zsh is a framework to configure zsh. You can install tons of plugins to make your life easier! I’ll list just my favorites here.Oh-My-Zsh is a delightful, open source, community-driven framework for managing your ZSH configuration.
 
 But first, to install oh-my-zsh type:
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 $ vim|nano|code ~/.zshrc: Editar configurações do ZSH
 
-#### Syntax Highlighting Plugin
+### 2.4.1 Syntax Highlighting
+
 It shows the red color when the command is wrong, and green when it’s right.
 
 To install it Simply clone this repository and source the scrip
@@ -136,7 +138,8 @@ Activate the plugin in ~/.zshrc: git will be already there and shouldnt be delet
 plugins=(git zsh-syntax-highlighting)
 Restart zsh (such as by opening a new instance of your terminal emulator).
 
-#### zsh-AutoSuggestion
+### 2.4.2 zsh-AutoSuggestion
+
 As the name says, it shows a suggestion when you start to type. When the suggestion is the correct one, just press the Arrow Right key.
 
 The suggestions are based on configured alias (see more below), history of commands, syntax of commands, etc.
@@ -146,44 +149,57 @@ and again, add the plugin to the list of plugins inside ~/.zshrc:
 plugins=(zsh-autosuggestions)
 Close and open the terminal to see it working.
 
-#### Autojump
+### 2.4.3 Autojump
+
 The shortcut j goes to the most used directory. And if you type j + the name of the folder or project you want (or just the first few letters), it will go straight to where you want.
 
 To install it:
 $ brew install autojump
 Then add the plugin in ~/.zshrc:
 plugins=(autojump)
-6.4 Git
+
+### 2.4.4 Git
 Fast shortcuts for git commands. It comes installed with OhMyZSH (check the plugins array on ~/.zshrc)
 
 
-The coolest thing here is the possibility to use fast shortcuts for git commands, some examples are:
-gst - git status
-gup - git pull –rebase
-gp - git push
-gcmsg- git commit -m
-gd - git diff
-gaa - git add –all
-You can find the complete cheatsheet here.
-To use it, add git to the plugins array in your .zshrc file, in the end, your plugins array will be something like:
-plugins=(  
-git
-autojump  
-zsh-syntax-highlighting
-zsh-autosuggestions
-)
+The coolest thing here is the possibility to use fast shortcuts for git commands, some examples are:  
+`gst` - git status  
+`gup` - git pull –rebase   
+`gp` - git push  
+`gcmsg` - git commit -m  
+`gd` - git diff  
+`gaa` - git add –all  
 
-6.5 Alias
-You can also personalize the aliases you want in the .zshrc file. To do it, you just have to use the alias keyword inside ~/.zshrc:
-alias softReset="git reset --soft head~1"
-alias hardReset="git reset --hard head~1"
-alias amendCommit="git commit --amend"
-alias gphm="git push heroku master"
-6.6 Themes
-To finish, there are tons of beautiful themes available for you to personalize your terminal. I use the avit theme. You can find all of them here.
+You can find the complete cheatsheet here.
+To use it, add git to the plugins array in your .zshrc file, in the end, your plugins array will be something like:   
+
+```
+plugins=(  
+   git
+   autojump  
+   zsh-syntax-highlighting
+   zsh-autosuggestions
+)
+```
+
+## 2.4.5 Themes
+
+To finish, there are tons of beautiful themes available for you to personalize your terminal. I use the avit theme. [You can find all of them here](https://github.com/ohmyzsh/ohmyzsh/wiki/Themes).
+
 To set the theme, add inside ~/.zshrc:
-ZSH_THEME="avit"
+
+`ZSH_THEME="avit"`
+
 That’s all!
+
+## 2.5 Alias
+
+You can also personalize the aliases you want in the .zshrc file. To do it, you just have to use the alias keyword inside ~/.zshrc:
+
+`alias softReset="git reset --soft head~1"`  
+`alias hardReset="git reset --hard head~1"`  
+`alias amendCommit="git commit --amend"`  
+`alias gphm="git push heroku master"`
 
 1. Configure the Function Keys to appear whenever you want
    In the beginning, it was annoying to lose the Function Keys because of the Touch Bar. The Functions Keys are a very good resource to use the shortcuts that IntelliJ or any other IDE provide us while coding. To solve this, go to:
@@ -191,17 +207,19 @@ That’s all!
    Then add whatever application you want. The added applications will keep the Function Keys visible while the application window is being used, and you don’t lose the regular things that the Touch Bar will show while using other applications.
 
 
-Touch bar
+# 3 Touch bar
 
 System Preferences > Keyboard > customize control strip
+
 Drang and drop
-2. Fast tracking!
+
+# 4 Fast tracking!
    Since we are talking about speed, let’s make the mouse run! If you’re not used to the fast-tracking speed it can be uncomfortable in the beginning, but give it a try for 10 minutes. To configure the mouse, go to:
    System Preferences > Trackpad , and set the Tracking speed to Fast.
 
 If you work with the Trackpad, go to: System Preferences > Mouse, and do the same, set the Tracking speed to Fast.
 
-3. Latency and Key Repeat
+# 5 Latency and Key Repeat
    Similar to the previous tip. This one makes your keyboard keys faster. Go to:
    System Preferences > Keyboard, set Key Repeat to Fast, and Delay Until Repeat to Short.
 
