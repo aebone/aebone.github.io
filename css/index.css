@@ -1,0 +1,23 @@
+/** @format */
+
+body {
+  font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+header,
+main {
+  padding: 12px 12px;
+}
+
+footer {
+  padding: 0 12px;
+}
+
+a {
+  text-decoration: underline;
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 1.2rem;
+}

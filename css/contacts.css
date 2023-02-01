@@ -1,0 +1,38 @@
+/** @format */
+
+.container {
+  text-transform: lowercase;
+  padding: 12px 24px;
+}
+
+.main {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+}
+
+.links {
+  text-align: center;
+}
+
+.links li:last-child {
+  padding-top: 12px;
+}
+
+.link {
+  color: #0f0f0f;
+}
+
+.link:hover {
+  font-weight: bold;
+}
+
+.link::before {
+  content: "- ";
+}
