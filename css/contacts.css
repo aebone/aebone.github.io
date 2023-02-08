@@ -2,7 +2,7 @@
 
 .container {
   text-transform: lowercase;
-  padding: 12px 24px;
+  font-family: "Times New Roman", Times, serif;
 }
 
 .main {
@@ -10,29 +10,49 @@
   height: 100vh;
   justify-content: center;
   align-items: center;
+  margin-top: -30px;
 }
 
 .header {
+  display: flex;
+  align-items: center;
   position: sticky;
   top: 0;
+  padding: 0 24px;
+  height: 30px;
+  background-color: #0f0f0f;
+}
+
+.header a {
+  color: #ffffff;
+  font-size: 16px;
+}
+
+.header a:hover {
+  font-size: 18px;
 }
 
 .links {
   text-align: center;
 }
 
+.links li {
+  line-height: 20px;
+}
+
 .links li:last-child {
   padding-top: 12px;
 }
 
+.links li::before {
+  content: "- ";
+}
+
 .link {
   color: #0f0f0f;
+  font-size: 16px;
 }
 
 .link:hover {
   font-weight: bold;
-}
-
-.link::before {
-  content: "- ";
 }

@@ -1,7 +1,12 @@
 /** @format */
 
+@font-face {
+  font-family: comic;
+  src: url(../font/LDFComicSans.ttf);
+}
+
 body {
-  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-family: "Comic Sans MS", comic, cursive, sans-serif;
 }
 
 header,
@@ -19,5 +24,5 @@ a {
 
 h1 {
   font-weight: bold;
-  font-size: 1.2rem;
+  font-size: 20px;
 }
